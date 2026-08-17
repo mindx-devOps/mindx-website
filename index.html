@@ -462,35 +462,72 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
+    /* ══ MOBILE MENU ══ */
+    .mobile-menu {
+      display: none; position: fixed; top: 72px; left: 0; right: 0; z-index: 199;
+      background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.1);
+      padding: 1.25rem 1.5rem 1.75rem; flex-direction: column; gap: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,.85); text-decoration: none; font-size: .95rem; font-weight: 500;
+      padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu .mob-login { color: rgba(255,255,255,.5); font-size: .875rem; }
+    .mobile-menu .mob-cta {
+      margin-top: 1rem; background: var(--accent); color: #fff; font-weight: 700;
+      text-align: center; padding: .75rem 1rem; border-radius: var(--r-pill);
+      border-bottom: none; font-size: .9rem;
+    }
+    .mobile-menu .mob-cta:hover { background: var(--accent-dk); }
+
     /* ══ RESPONSIVE ══ */
     @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .demo-float-1,.demo-float-2,.demo-float-3 { display: none; }
+      .bento { grid-template-columns: repeat(3,1fr); }
+      .bento-card.col-2,.bento-card.col-3,.bento-card.col-4 { grid-column: span 3; }
+    }
+    @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
       .demo-wrap  { display: none; }
-      .bento      { grid-template-columns: repeat(3,1fr); }
-      .bento-card.col-2,.bento-card.col-3,.bento-card.col-4 { grid-column: span 3; }
     }
     @media (max-width: 768px) {
       .nav-center, .nav-right .btn-nav-ghost { display: none; }
       .hamburger    { display: flex; }
+      .section      { padding: 64px 1.25rem; }
       .steps-row    { grid-template-columns: 1fr; }
       .pricing-row  { grid-template-columns: 1fr; }
-      .guarantee-row{ grid-column: 1fr; }
+      .guarantee-row{ grid-template-columns: 1fr; }
       .setup-row    { grid-template-columns: 1fr 1fr; }
+      .setup-arrow  { display: none; }
       .bento        { grid-template-columns: 1fr 1fr; }
       .bento-card.col-2,.bento-card.col-3,.bento-card.col-4,.bento-card.col-6 { grid-column: span 2; }
       .footer-top   { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .wa-wrap      { flex-direction: column; }
+      .wa-wrap      { flex-direction: column; padding: 2rem 1.75rem; gap: 1.5rem; }
       .wa-right     { margin-left: 0; }
-      .guarantee-row{ grid-template-columns: 1fr; }
+      .table-wrap   { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      table         { min-width: 580px; }
+      .final-cta    { padding: 80px 1.25rem; }
     }
     @media (max-width: 520px) {
       .bento { grid-template-columns: 1fr; }
       .bento-card { grid-column: span 1 !important; }
       .setup-row { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .hero-ctas  { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero { padding: 100px 1.25rem 60px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas a { text-align: center; justify-content: center; }
       .notify-form { flex-direction: column; }
       .notify-input { width: 100%; }
+      .sh { font-size: 1.7rem; }
+      .wa-wrap { padding: 1.5rem; }
+      .wa-icon-box { width: 80px; height: 80px; border-radius: 20px; }
+      .wa-icon-box img { width: 80px; height: 80px; }
+      .final-cta { padding: 60px 1.25rem; }
+      .final-cta h2 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -520,6 +557,17 @@
     </svg>
   </button>
 </nav>
+
+<!-- ══════════ MOBILE MENU ══════════ -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how-it-works" onclick="closeMobileNav()">How it works</a>
+  <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="#compare" onclick="closeMobileNav()">Compare</a>
+  <a href="#whatsapp" onclick="closeMobileNav()">WhatsApp ✦</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="https://app.themindx.com/signin" class="mob-login" onclick="closeMobileNav()">Log in</a>
+  <a href="https://calendly.com/rajesh-dayalan-themindx/30min?month=2026-08" class="mob-cta" onclick="closeMobileNav()">Start free trial →</a>
+</div>
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
@@ -1125,19 +1173,25 @@
   document.getElementById('waEmail').addEventListener('keydown', e=>{if(e.key==='Enter')notifyWA();});
 
   // Mobile nav
+  const HAMBURGER_ICON = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  const CLOSE_ICON     = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
   function toggleNav() {
-    const c = document.querySelector('.nav-center');
-    if (c.style.display === 'flex') {
-      c.style.display = '';
-    } else {
-      Object.assign(c.style, {
-        display:'flex', flexDirection:'column', position:'fixed',
-        top:'64px', left:'0', right:'0', padding:'1.5rem 2rem',
-        background:'var(--navy)', borderBottom:'1px solid rgba(255,255,255,.08)',
-        gap:'1rem', zIndex:'199'
-      });
-    }
+    const menu = document.getElementById('mobileMenu');
+    const btn  = document.querySelector('.hamburger');
+    const open = menu.classList.toggle('open');
+    btn.innerHTML = open ? CLOSE_ICON : HAMBURGER_ICON;
   }
+  function closeMobileNav() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').innerHTML = HAMBURGER_ICON;
+  }
+  // Close mobile menu on outside click
+  document.addEventListener('click', e => {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.hamburger')) {
+      closeMobileNav();
+    }
+  });
 </script>
 </body>
 </html>
