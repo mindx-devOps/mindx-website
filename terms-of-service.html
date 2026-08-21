@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — MindX AI</title>
+  <meta name="description" content="MindX AI Terms of Service — the legal agreement governing your use of our platform.">
+  <link rel="icon" type="image/png" href="MX_Icon_White.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #151944; --white: #FFFFFF; --cream: #F7F5F1;
+      --bg-soft: #F4F5F8; --text: #0C0F1A; --text-2: #2D3748;
+      --text-muted: #6B7280; --text-dim: #9CA3AF;
+      --accent: #1A6FFF; --accent-dk: #1358D0; --accent-lt: #EEF4FF;
+      --border: #E5E7EB; --border-soft: #F0F1F5;
+      --success-mid: #22C55E; --r-pill: 100px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* ══ ANNOUNCEMENT BAR ══ */
+    .ann-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 210; background: #071A45; height: 36px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: .78rem; font-weight: 500; color: rgba(255,255,255,.82); letter-spacing: .01em; }
+    .ann-bar a { color: #6EE7B7; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; transition: opacity .2s; }
+    .ann-bar a:hover { opacity: .8; }
+    .ann-short { display: none; }
+
+    /* ══ NAV ══ */
+    #nav { position: fixed; top: 50px; left: 50%; transform: translateX(-50%); z-index: 200; width: calc(100% - 48px); max-width: 1160px; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; background: #071A45; border-radius: 100px; box-shadow: 0 4px 32px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.06) inset; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-text { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -.03em; }
+    .nav-center { display: flex; align-items: center; }
+    .nav-center a { color: #fff; text-decoration: none; font-size: .875rem; font-weight: 500; padding: .4rem .85rem; border-radius: var(--r-pill); transition: color .2s; }
+    .nav-center a:hover { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: .5rem; }
+    .btn-nav-ghost { color: #fff; font-size: .875rem; font-weight: 500; text-decoration: none; padding: .4rem .85rem; border-radius: var(--r-pill); transition: color .2s; }
+    .btn-nav-ghost:hover { color: var(--accent); }
+    .btn-nav-primary { background: var(--accent); color: #fff; font-size: .875rem; font-weight: 700; text-decoration: none; padding: .48rem 1.15rem; border-radius: var(--r-pill); transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-nav-primary:hover { background: var(--accent-dk); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(26,111,255,.4); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: #fff; padding: 4px; }
+
+    /* ══ MOBILE MENU ══ */
+    .mobile-menu { display: none; position: fixed; top: 112px; left: 0; right: 0; z-index: 199; background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.1); padding: 1.25rem 1.5rem 1.75rem; flex-direction: column; gap: 0; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .95rem; font-weight: 500; padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu .mob-login { color: rgba(255,255,255,.5); font-size: .875rem; }
+    .mobile-menu .mob-cta { margin-top: 1rem; background: var(--accent); color: #fff; font-weight: 700; text-align: center; padding: .75rem 1rem; border-radius: var(--r-pill); border-bottom: none; font-size: .9rem; }
+    .mobile-menu .mob-cta:hover { background: var(--accent-dk); }
+
+    /* ══ PAGE CONTENT ══ */
+    .page-wrap { max-width: 800px; margin: 0 auto; padding: 140px 2rem 6rem; }
+
+    .doc-hero { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border); }
+    .doc-hero .badge { display: inline-block; background: var(--accent-lt); color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .3rem .8rem; border-radius: 100px; margin-bottom: .75rem; }
+    .doc-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -.03em; color: var(--navy); line-height: 1.15; }
+    .doc-hero .last-updated { margin-top: .5rem; font-size: .82rem; color: var(--text-muted); }
+
+    /* TOC */
+    .toc { background: var(--bg-soft); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc h3 { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: .9rem; }
+    .toc ol { list-style: none; padding: 0; columns: 2; column-gap: 2rem; }
+    .toc li { margin-bottom: .4rem; }
+    .toc a { color: var(--accent); text-decoration: none; font-size: .85rem; font-weight: 500; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Sections */
+    .doc-section { margin-bottom: 2.5rem; }
+    .doc-section + .doc-section { border-top: 1px solid var(--border); padding-top: 2.5rem; }
+    .doc-section h2 { font-size: 1.2rem; font-weight: 800; color: var(--navy); margin-bottom: .75rem; }
+    .doc-section h3 { font-size: .95rem; font-weight: 700; color: var(--text-2); margin: 1.2rem 0 .5rem; }
+    .doc-section p { font-size: .9rem; color: var(--text-2); margin-bottom: .7rem; line-height: 1.75; }
+    .doc-section ul, .doc-section ol { padding-left: 1.4rem; margin-bottom: .75rem; }
+    .doc-section li { font-size: .9rem; color: var(--text-2); margin-bottom: .4rem; line-height: 1.7; }
+    .doc-section a { color: var(--accent); word-break: break-word; }
+    .doc-section a:hover { text-decoration: underline; }
+    .doc-section .caps { font-size: .875rem; font-weight: 600; color: var(--text); line-height: 1.65; }
+
+    /* Contact box */
+    .contact-box { background: #071A45; color: #fff; border-radius: 16px; padding: 2rem 2.5rem; margin-top: 3rem; }
+    .contact-box h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: .6rem; }
+    .contact-box p { font-size: .9rem; color: rgba(255,255,255,.65); margin-bottom: .3rem; }
+    .contact-box a { color: #6EE7B7; font-weight: 600; }
+
+    /* ══ FOOTER ══ */
+    footer { background: #071A45; border-top: 1px solid rgba(255,255,255,.07); padding: 3.5rem 2rem 2rem; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 1.75rem; }
+    .footer-brand p { font-size: .82rem; color: rgba(255,255,255,.4); margin-top: .75rem; line-height: 1.7; max-width: 270px; }
+    .footer-col h4 { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.35); margin-bottom: .9rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .5rem; }
+    .footer-col ul li a { font-size: .82rem; color: #fff; text-decoration: none; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-wordmark { overflow: hidden; text-align: center; padding: 1rem 0 0; margin: 0 -2rem; font-size: clamp(4rem, 14vw, 10rem); font-weight: 900; letter-spacing: -.04em; line-height: 1; color: rgba(255,255,255,.07); user-select: none; white-space: nowrap; }
+    .footer-btm { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-btm p { font-size: .78rem; color: rgba(255,255,255,.3); }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: .78rem; color: rgba(255,255,255,.3); text-decoration: none; }
+    .footer-legal a:hover { color: rgba(255,255,255,.6); }
+    .ask-ai-bar { padding: 1.5rem 0 1rem; border-top: 1px solid rgba(255,255,255,.07); margin-bottom: 1.5rem; }
+    .ask-ai-label { font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .15em; color: rgba(255,255,255,.28); margin-bottom: .85rem; display: block; }
+    .ask-ai-icons { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .ai-icon { width: 52px; height: 52px; border-radius: 13px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform .18s ease, opacity .18s ease; flex-shrink: 0; }
+    .ai-icon:hover { transform: scale(1.1); opacity: .8; }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 768px) {
+      .nav-center, .nav-right .btn-nav-ghost, .nav-right .btn-nav-primary { display: none; }
+      .hamburger { display: flex; }
+      #nav { width: calc(100% - 24px); top: 46px; }
+      .ann-bar { font-size: .72rem; padding: 0 12px; }
+      .ann-full { display: none; }
+      .ann-short { display: inline; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .toc ol { columns: 1; }
+      .page-wrap { padding: 130px 1.25rem 4rem; }
+    }
+    @media (max-width: 520px) {
+      .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
+      .contact-box { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ ANNOUNCEMENT BAR ══ -->
+<div class="ann-bar">
+  <span class="ann-full">Simple pricing — $39/mo &nbsp;·&nbsp; $99/mo &nbsp;·&nbsp; $199/mo. No per-ticket charges. Ever.&nbsp;</span>
+  <span class="ann-short">Plans from $39/mo. No per-ticket charges.&nbsp;</span>
+  <a href="index.html#pricing">See pricing →</a>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="MindX_AI_Logo.png" alt="MindX AI" height="40" style="display:block;">
+  </a>
+  <div class="nav-center">
+    <a href="index.html#how-it-works">How it works</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#compare">Compare</a>
+    <a href="index.html#whatsapp">WhatsApp ✦</a>
+    <a href="index.html#faq">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://app.themindx.com/signin" class="btn-nav-ghost">Log in</a>
+    <a href="https://app.themindx.com/signup" class="btn-nav-primary">Signup</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#how-it-works" onclick="closeMobileNav()">How it works</a>
+  <a href="index.html#pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="index.html#compare" onclick="closeMobileNav()">Compare</a>
+  <a href="index.html#whatsapp" onclick="closeMobileNav()">WhatsApp ✦</a>
+  <a href="index.html#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="https://app.themindx.com/signin" class="mob-login" onclick="closeMobileNav()">Log in</a>
+  <a href="https://app.themindx.com/signup" class="mob-cta" onclick="closeMobileNav()">Signup</a>
+</div>
+
+<!-- ══ CONTENT ══ -->
+<main class="page-wrap">
+
+  <div class="doc-hero">
+    <span class="badge">Legal</span>
+    <h1>Terms of Service</h1>
+    <p class="last-updated">Last Updated: October 28, 2025</p>
+  </div>
+
+  <nav class="toc" aria-label="Table of contents">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#s1">1. Agreement to Terms</a></li>
+      <li><a href="#s2">2. Definitions</a></li>
+      <li><a href="#s3">3. Service Provision and Subscription</a></li>
+      <li><a href="#s4">4. Fees and Payment</a></li>
+      <li><a href="#s5">5. Customer Obligations and Restrictions</a></li>
+      <li><a href="#s6">6. Intellectual Property Rights</a></li>
+      <li><a href="#s7">7. Data Privacy and Security</a></li>
+      <li><a href="#s8">8. Service Availability and Modifications</a></li>
+      <li><a href="#s9">9. Third-Party Integrations</a></li>
+      <li><a href="#s10">10. Warranties and Disclaimers</a></li>
+      <li><a href="#s11">11. Limitation of Liability</a></li>
+      <li><a href="#s12">12. Confidentiality</a></li>
+      <li><a href="#s13">13. Indemnification</a></li>
+      <li><a href="#s14">14. Term and Termination</a></li>
+      <li><a href="#s15">15. General Provisions</a></li>
+      <li><a href="#s16">16. Contact Information</a></li>
+    </ol>
+  </nav>
+
+  <section class="doc-section" id="s1">
+    <h2>1. Agreement to Terms</h2>
+    <p>These Terms of Service ("Terms") constitute a legally binding agreement between MindX Digital Softwares Inc. ("MindX AI," "we," "us," or "our") and you (either an individual or the entity you represent) ("Customer," "you," or "your") governing your access to and use of MindX AI's conversational AI commerce platform, including our website, software, applications, integrations, and related services (collectively, the "Services").</p>
+    <p>By accessing or using the Services, creating an account, subscribing to a plan, or clicking "I Accept," you represent and warrant that:</p>
+    <ul>
+      <li>You are at least 18 years of age and have the legal capacity to enter into binding contracts;</li>
+      <li>If entering this agreement on behalf of an organization, you have the authority to bind that organization to these Terms;</li>
+      <li>You have read, understood, and agree to be bound by these Terms and our Privacy Policy (available at <a href="privacy-policy.html">themindx.ai/privacy-policy</a>);</li>
+      <li>This electronic agreement has the same legal force and effect as a written signature.</li>
+    </ul>
+    <p>If you do not agree to these Terms, you must immediately discontinue use of the Services.</p>
+  </section>
+
+  <section class="doc-section" id="s2">
+    <h2>2. Definitions</h2>
+    <p><strong>"Account"</strong> means the account created by Customer to access and use the Services.</p>
+    <p><strong>"Customer Data"</strong> means all data, content, and information submitted, uploaded, transmitted, or processed by Customer or End Users through the Services, including but not limited to chat transcripts, customer information, product data, and e-commerce store data.</p>
+    <p><strong>"Documentation"</strong> means MindX AI's user guides, technical documentation, and other materials made available within the Services.</p>
+    <p><strong>"End Users"</strong> means Customer's customers, website visitors, or other individuals who interact with the Services deployed on Customer's e-commerce platform.</p>
+    <p><strong>"Subscription Plan"</strong> means the service tier selected by Customer (Starter, Growth, or Scale) as described at <a href="index.html#pricing">themindx.ai/pricing</a>, which may be modified by MindX AI from time to time.</p>
+    <p><strong>"Subscription Term"</strong> means the period for which Customer has subscribed to the Services, either monthly (30-day rolling period from signup date) or annual (12 months from signup date).</p>
+  </section>
+
+  <section class="doc-section" id="s3">
+    <h2>3. Service Provision and Subscription</h2>
+    <h3>3.1 Access to Services</h3>
+    <p>Subject to Customer's compliance with these Terms and payment of applicable fees, MindX AI grants Customer a limited, non-exclusive, non-transferable, non-sublicensable right to access and use the Services during the Subscription Term solely for Customer's internal business purposes in connection with Customer's e-commerce operations.</p>
+    <h3>3.2 Free Trial</h3>
+    <p>New customers may be eligible for a 7-day free trial. During the trial period, Customer may access the Services at no charge. At the end of the trial period, Customer's payment method will be automatically charged the applicable Subscription Fees unless Customer cancels before the trial expires. Free trials are limited to one per customer.</p>
+    <h3>3.3 Money-Back Guarantee</h3>
+    <p>Monthly subscription customers are eligible for a 30-day money-back guarantee beginning after the free trial period ends. Combined with the 7-day free trial, this provides a total 37-day risk-free period. To request a refund under this guarantee, Customer must contact <a href="mailto:support@themindx.ai">support@themindx.ai</a> before the 37-day period expires. Annual subscription customers are not eligible for the money-back guarantee. All refunds under this guarantee will be provided as store credits unless otherwise determined by MindX AI in its sole discretion.</p>
+    <h3>3.4 Subscription Plans and Usage Limits</h3>
+    <p>Each Subscription Plan includes specific usage limits as described at <a href="index.html#pricing">themindx.ai/pricing</a>. Customer is responsible for monitoring their usage and ensuring compliance with plan limits. MindX AI reserves the right to modify Subscription Plans, features, and pricing at any time, with changes taking effect at the start of Customer's next Subscription Term.</p>
+    <h3>3.5 Overage Charges</h3>
+    <p>If Customer's usage exceeds the limits of their Subscription Plan during any Subscription Term, overage charges will be calculated and automatically charged to Customer's payment method on file. By subscribing to the Services, Customer authorizes MindX AI to charge overage fees automatically to prevent service interruption. Overage charges are non-refundable.</p>
+    <h3>3.6 Automatic Renewal</h3>
+    <p>SUBSCRIPTIONS AUTOMATICALLY RENEW. Unless Customer cancels their subscription before the end of the current Subscription Term, the subscription will automatically renew for successive terms of the same length at the then-current rates. Customer authorizes MindX AI and its payment processors to charge Customer's payment method on file for each renewal period.</p>
+    <h3>3.7 Account Registration and Security</h3>
+    <p>Customer must provide accurate, complete, and current information during registration and maintain the accuracy of such information throughout the Subscription Term. Customer is responsible for maintaining the confidentiality of account credentials and all activities that occur under Customer's account. Notify us immediately at <a href="mailto:support@themindx.ai">support@themindx.ai</a> of any unauthorized access or security breach.</p>
+  </section>
+
+  <section class="doc-section" id="s4">
+    <h2>4. Fees and Payment</h2>
+    <h3>4.1 Subscription Fees</h3>
+    <p>Customer agrees to pay all Subscription Fees associated with their selected Subscription Plan. All fees are stated in U.S. dollars, exclusive of all taxes, due in advance at the beginning of each Subscription Term, and non-refundable except as expressly provided in Section 3.3.</p>
+    <h3>4.2 Payment Processing</h3>
+    <p>MindX AI uses third-party payment processors including Stripe, Inc. and Shopify Payments to process payments. By providing payment information, Customer authorizes MindX AI and Payment Processors to charge the payment method for all applicable fees and agrees to promptly update payment information if it changes or expires.</p>
+    <h3>4.3 Failed Payments</h3>
+    <p>If any payment fails or is declined, MindX AI may suspend or terminate access to the Services. Customer remains responsible for all unpaid amounts and will be responsible for all collection costs including reasonable attorneys' fees.</p>
+    <h3>4.4 Taxes</h3>
+    <p>All fees are exclusive of federal, state, local, or foreign taxes, levies, duties, or similar governmental assessments. Customer is responsible for paying all Taxes associated with purchases under these Terms.</p>
+    <h3>4.5 Price Changes</h3>
+    <p>MindX AI reserves the right to change Subscription Fees at any time. Price changes will take effect at the beginning of the next Subscription Term. MindX AI will provide at least 30 days' advance notice of material price increases via email or in-app notification.</p>
+    <h3>4.6 Refund Policy</h3>
+    <p>Except as provided in Section 3.3, all fees are non-refundable. MindX AI reserves the right to deny refund requests for any reason.</p>
+  </section>
+
+  <section class="doc-section" id="s5">
+    <h2>5. Customer Obligations and Restrictions</h2>
+    <h3>5.1 Acceptable Use</h3>
+    <p>Customer agrees to use the Services only for lawful purposes and in accordance with these Terms. Customer will not, and will not permit any End User to:</p>
+    <ul>
+      <li>Violate any applicable law, regulation, or third-party right;</li>
+      <li>Interfere with or disrupt the integrity or performance of the Services;</li>
+      <li>Attempt to gain unauthorized access to the Services, accounts, computer systems, or networks;</li>
+      <li>Use the Services to develop competing products or services;</li>
+      <li>Remove, alter, or obscure any proprietary notices on the Services;</li>
+      <li>Use the Services to send spam or unsolicited communications;</li>
+      <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive source code from the Services.</li>
+    </ul>
+    <h3>5.2 Customer Data Responsibilities</h3>
+    <p>Customer is solely responsible for the accuracy, legality, and quality of all Customer Data, and for obtaining all necessary rights, permissions, and consents to submit Customer Data to the Services.</p>
+    <h3>5.3 Compliance with E-commerce Platform Terms</h3>
+    <p>Customer is responsible for complying with the terms of service of any e-commerce platform integrated with the Services (e.g., Shopify, WooCommerce, Magento). MindX AI is not responsible for suspension or termination of Customer's platform account.</p>
+  </section>
+
+  <section class="doc-section" id="s6">
+    <h2>6. Intellectual Property Rights</h2>
+    <h3>6.1 MindX AI's Intellectual Property</h3>
+    <p>The Services, including all software, algorithms, models, interfaces, designs, documentation, content, trademarks, and logos, are owned by or licensed to MindX AI and are protected by applicable intellectual property laws. All rights not expressly granted in these Terms are reserved by MindX AI.</p>
+    <h3>6.2 Customer Data Ownership</h3>
+    <p>As between MindX AI and Customer, Customer retains all rights, title, and interest in and to Customer Data. Customer grants MindX AI a worldwide, non-exclusive, royalty-free license to use, process, store, and transmit Customer Data solely to provide, maintain, and improve the Services.</p>
+    <h3>6.3 AI Outputs and Generated Content</h3>
+    <p>The Services generate AI-powered responses, content, and outputs based on Customer Data and MindX AI's proprietary models ("AI Outputs"). Customer may use AI Outputs for any lawful purpose in connection with Customer's business. Customer acknowledges that AI Outputs are probabilistic in nature and may not always be accurate, and Customer is solely responsible for reviewing and verifying AI Outputs before use.</p>
+    <h3>6.4 Aggregated and Anonymized Data</h3>
+    <p>MindX AI may collect, use, and disclose aggregated and anonymized usage data that does not identify Customer or any individual for any purpose, including analytics, benchmarking, research, and product development. MindX AI owns all rights to such aggregated and anonymized data.</p>
+    <h3>6.5 Feedback</h3>
+    <p>If Customer provides MindX AI with any suggestions, enhancement requests, recommendations, or other feedback regarding the Services, Customer grants MindX AI an unlimited, irrevocable, perpetual, royalty-free, worldwide license to use, modify, and incorporate such Feedback into the Services without any obligation to Customer.</p>
+  </section>
+
+  <section class="doc-section" id="s7">
+    <h2>7. Data Privacy and Security</h2>
+    <h3>7.1 Privacy Policy</h3>
+    <p>MindX AI's collection, use, and disclosure of personal information is governed by our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Customer agrees to comply with all applicable data protection and privacy laws, including GDPR, CCPA, LGPD, PIPEDA, and other regulations applicable to Customer's jurisdiction.</p>
+    <h3>7.2 Data Privacy Framework Compliance</h3>
+    <p>MindX Digital Softwares Inc. complies with the EU-U.S. Data Privacy Framework (EU-U.S. DPF), the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF) as set forth by the U.S. Department of Commerce.</p>
+    <h3>7.3 Security Measures</h3>
+    <p>MindX AI implements commercially reasonable technical and organizational security measures to protect Customer Data, including encryption of data in transit and at rest, role-based access controls and authentication, and regular security audits and monitoring. However, no security system is impenetrable.</p>
+    <h3>7.4 Data Retention and Deletion</h3>
+    <p>MindX AI will retain Customer Data for as long as Customer's account is active. Upon termination, Customer may request export of Customer Data within 30 days of termination. MindX AI will delete Customer Data within 90 days of termination, except as required by law.</p>
+  </section>
+
+  <section class="doc-section" id="s8">
+    <h2>8. Service Availability and Modifications</h2>
+    <h3>8.1 Service Availability</h3>
+    <p>MindX AI will use commercially reasonable efforts to make the Services available 24/7, but does not guarantee uninterrupted or error-free operation. The Services may be temporarily unavailable due to scheduled or emergency maintenance, third-party service provider outages, force majeure events, or security incidents.</p>
+    <h3>8.2 Service Modifications</h3>
+    <p>MindX AI reserves the right to modify, update, or discontinue any aspect of the Services at any time. If MindX AI discontinues a material feature, MindX AI will provide 30 days' advance notice via email. Customer's continued use of the Services after such notice constitutes acceptance of the changes.</p>
+    <h3>8.3 Beta Features</h3>
+    <p>MindX AI may occasionally make beta, pilot, or experimental features available. Beta Features are provided "as is" without warranties of any kind, may contain bugs or incomplete functionality, and may be modified or discontinued at any time without notice.</p>
+  </section>
+
+  <section class="doc-section" id="s9">
+    <h2>9. Third-Party Integrations and Services</h2>
+    <p>The Services integrate with various e-commerce platforms (e.g., Shopify, WooCommerce, Magento, BigCommerce) and third-party services. Such integrations are subject to the terms and policies of the third-party providers, which are outside MindX AI's control and may change or become unavailable at any time. MindX AI does not control, endorse, or assume responsibility for third-party platforms, integrations, or services.</p>
+  </section>
+
+  <section class="doc-section" id="s10">
+    <h2>10. Warranties and Disclaimers</h2>
+    <h3>10.1 MindX AI's Limited Warranty</h3>
+    <p>MindX AI warrants that the Services will perform substantially in accordance with the Documentation under normal use. Customer's sole remedy for breach of this warranty is for MindX AI to use commercially reasonable efforts to correct the non-conformity, or if MindX AI is unable to do so, Customer may terminate the affected Services and receive a pro-rated refund of pre-paid Subscription Fees for the unused portion of the Subscription Term.</p>
+    <h3>10.2 Disclaimer of Warranties</h3>
+    <p class="caps">EXCEPT FOR THE LIMITED WARRANTY IN SECTION 10.1, THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, TO THE FULLEST EXTENT PERMITTED BY LAW. MINDX AI DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
+    <h3>10.3 AI-Specific Disclaimers</h3>
+    <p class="caps">CUSTOMER ACKNOWLEDGES THAT AI OUTPUTS ARE PROBABILISTIC IN NATURE AND MAY BE INACCURATE, INCOMPLETE, OR OTHERWISE INAPPROPRIATE. CUSTOMER IS SOLELY RESPONSIBLE FOR REVIEWING AND VERIFYING ALL AI OUTPUTS BEFORE USE IN ANY CUSTOMER-FACING CONTEXT. MINDX AI DOES NOT GUARANTEE THAT THE SERVICES WILL INCREASE SALES, CONVERSIONS, CUSTOMER SATISFACTION, OR ACHIEVE ANY SPECIFIC BUSINESS OUTCOME.</p>
+  </section>
+
+  <section class="doc-section" id="s11">
+    <h2>11. Limitation of Liability</h2>
+    <h3>11.1 Aggregate Liability Cap</h3>
+    <p class="caps">TO THE FULLEST EXTENT PERMITTED BY LAW, MINDX AI'S TOTAL AGGREGATE LIABILITY TO CUSTOMER FOR ALL CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES SHALL NOT EXCEED THE TOTAL SUBSCRIPTION FEES PAID BY CUSTOMER TO MINDX AI DURING THE ONE (1) MONTH PERIOD IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE LIABILITY.</p>
+    <h3>11.2 Exclusion of Consequential Damages</h3>
+    <p class="caps">TO THE FULLEST EXTENT PERMITTED BY LAW, MINDX AI SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOST PROFITS, REVENUE, SALES, OR BUSINESS OPPORTUNITIES; LOSS OF DATA OR BUSINESS INTERRUPTION; LOSS OF GOODWILL OR REPUTATION; OR COST OF SUBSTITUTE SERVICES OR PRODUCTS.</p>
+  </section>
+
+  <section class="doc-section" id="s12">
+    <h2>12. Confidentiality</h2>
+    <p>Each party may disclose to the other certain non-public, confidential information. The Receiving Party agrees to protect Confidential Information using at least the same degree of care as it uses to protect its own confidential information, but in no event less than reasonable care; use Confidential Information solely for the purposes of exercising rights or performing obligations under these Terms; and limit disclosure to employees, contractors, and agents who have a legitimate need to know. These obligations survive termination of these Terms for a period of three (3) years.</p>
+  </section>
+
+  <section class="doc-section" id="s13">
+    <h2>13. Indemnification</h2>
+    <h3>13.1 Customer Indemnification</h3>
+    <p>Customer agrees to defend, indemnify, and hold harmless MindX AI, its affiliates, and their respective officers, directors, employees, agents, and contractors from and against any and all claims, damages, losses, liabilities, costs, and expenses arising out of or related to Customer's use or misuse of the Services, Customer Data, Customer's violation of these Terms, or Customer's negligence, fraud, or willful misconduct.</p>
+    <h3>13.2 MindX AI Indemnification</h3>
+    <p>MindX AI agrees to defend, indemnify, and hold harmless Customer from and against any third-party claim that the Services, when used in accordance with these Terms, infringe or misappropriate such third party's valid U.S. patent, copyright, or trademark, subject to the conditions and exclusions set out in these Terms.</p>
+  </section>
+
+  <section class="doc-section" id="s14">
+    <h2>14. Term and Termination</h2>
+    <h3>14.1 Term</h3>
+    <p>These Terms commence on the date Customer accepts them by creating an account and continue until terminated in accordance with this Section 14.</p>
+    <h3>14.2 Termination by Customer</h3>
+    <p>Customer may terminate these Terms and cancel their subscription at any time by accessing account settings or contacting <a href="mailto:support@themindx.ai">support@themindx.ai</a>. Termination by Customer takes effect at the end of the current Subscription Term.</p>
+    <h3>14.3 Termination by MindX AI</h3>
+    <p>MindX AI may suspend or terminate Customer's access to the Services immediately if Customer breaches any material term of these Terms including failure to pay fees, Customer's use poses a security risk, or Customer engages in fraudulent, illegal, or harmful conduct.</p>
+    <h3>14.4 Effect of Termination</h3>
+    <p>Upon termination, Customer's right to access and use the Services immediately terminates. All outstanding fees become immediately due and payable. Customer may request export of Customer Data within 30 days of termination by contacting <a href="mailto:support@themindx.ai">support@themindx.ai</a>. After 30 days, MindX AI may permanently delete Customer Data.</p>
+  </section>
+
+  <section class="doc-section" id="s15">
+    <h2>15. General Provisions</h2>
+    <h3>15.1 Governing Law</h3>
+    <p>These Terms and any disputes arising out of or related to these Terms or the Services shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of laws principles.</p>
+    <h3>15.2 Dispute Resolution</h3>
+    <p>Before initiating any formal dispute resolution proceeding, the parties agree to first attempt to resolve any dispute informally by contacting <a href="mailto:support@themindx.ai">support@themindx.ai</a>. If informal negotiations fail, either party may initiate non-binding mediation. If mediation fails, either party may initiate binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules.</p>
+    <p class="caps">CLASS ACTION WAIVER: CUSTOMER AND MINDX AI AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN AN INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, CONSOLIDATED, OR REPRESENTATIVE PROCEEDING.</p>
+    <h3>15.3 Force Majeure</h3>
+    <p>Neither party will be liable for any failure or delay in performing its obligations under these Terms (other than payment obligations) to the extent such failure or delay is caused by events beyond the party's reasonable control, including acts of God, natural disasters, pandemics, war, terrorism, or failures of third-party services.</p>
+    <h3>15.4 Assignment</h3>
+    <p>Customer may not assign, transfer, or delegate any rights or obligations under these Terms without MindX AI's prior written consent. MindX AI may assign these Terms in whole or in part without restriction, including to any affiliate or successor entity.</p>
+    <h3>15.5 Notices</h3>
+    <p>All notices required or permitted under these Terms must be in writing. Notices to Customer will be sent to the email address associated with Customer's account. Notices to MindX AI must be sent to <a href="mailto:support@themindx.ai">support@themindx.ai</a>.</p>
+    <h3>15.6 Entire Agreement</h3>
+    <p>These Terms, together with the Privacy Policy and any Order Form or subscription agreement executed by the parties, constitute the entire agreement between Customer and MindX AI regarding the Services and supersede all prior or contemporaneous agreements, communications, and understandings, whether written or oral.</p>
+    <h3>15.7 Amendments</h3>
+    <p>MindX AI may modify these Terms at any time by posting revised Terms on the MindX AI website or by providing notice through the Services or via email. Material changes will be effective thirty (30) days after notice is provided. Customer's continued use of the Services after the effective date of revised Terms constitutes acceptance of the changes.</p>
+    <h3>15.8 Waiver and Severability</h3>
+    <p>No failure or delay by either party in exercising any right under these Terms constitutes a waiver of that right. If any provision of these Terms is held invalid, illegal, or unenforceable, that provision will be modified to the minimum extent necessary to make it valid and enforceable. The remaining provisions will continue in full force and effect.</p>
+    <h3>15.9 Publicity</h3>
+    <p>MindX AI may identify Customer as a customer of the Services and use Customer's name and logo in MindX AI's marketing materials, customer lists, and website. Customer may request removal of its name and logo by contacting <a href="mailto:support@themindx.ai">support@themindx.ai</a>, and MindX AI will comply within thirty (30) days.</p>
+  </section>
+
+  <div class="contact-box" id="s16">
+    <h2>16. Contact Information</h2>
+    <p>MindX Digital Softwares Inc.</p>
+    <p>1111B S Governors Ave, STE 23511, Dover, DE 19904</p>
+    <p>Email: <a href="mailto:support@themindx.ai">support@themindx.ai</a></p>
+    <br>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.5rem;">BY USING THE SERVICES, CUSTOMER ACKNOWLEDGES THAT CUSTOMER HAS READ, UNDERSTOOD, AND AGREES TO BE BOUND BY THESE TERMS.</p>
+  </div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="MindX_AI_Logo.png" alt="MindX AI" height="36" style="display:block;">
+        <p>The AI layer for ecommerce. Resolving Shopify customer support and chat conversations end to end — no setup wizard, no code.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#how-it-works">How it works</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#compare">Compare</a></li>
+          <li><a href="index.html#whatsapp">WhatsApp — Soon</a></li>
+          <li><a href="index.html#setup">Quick setup</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-wordmark">MindX AI</div>
+
+    <div class="ask-ai-bar">
+      <span class="ask-ai-label">Ask AI About MindX AI</span>
+      <div class="ask-ai-icons">
+        <a href="https://chatgpt.com/?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#10A37F;" title="Ask ChatGPT">
+          <img src="AI logos/Chatgpt.png" width="32" height="32" alt="ChatGPT" style="object-fit:contain;">
+        </a>
+        <a href="https://claude.ai/new?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#D97757;" title="Ask Claude">
+          <img src="AI logos/Claude.png" width="32" height="32" alt="Claude" style="object-fit:contain;">
+        </a>
+        <a href="https://gemini.google.com/app?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#fff;" title="Ask Gemini">
+          <img src="AI logos/Gemini.png" width="32" height="32" alt="Gemini" style="object-fit:contain;">
+        </a>
+        <a href="https://www.perplexity.ai/search/new?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#1C1C1E;" title="Ask Perplexity">
+          <img src="AI logos/perplexity.png" width="32" height="32" alt="Perplexity" style="object-fit:contain;">
+        </a>
+        <a href="https://x.com/i/grok?text=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#000;" title="Ask Grok">
+          <img src="AI logos/Grok.png" width="32" height="32" alt="Grok" style="object-fit:contain;">
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-btm">
+      <p>© 2026 MindX Digital Softwares Inc. · <a href="https://www.themindx.ai" style="color:inherit;text-decoration:none;">www.themindx.ai</a></p>
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-of-service.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const HAMBURGER_ICON = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  const CLOSE_ICON     = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  function toggleNav() {
+    const menu = document.getElementById('mobileMenu');
+    const btn  = document.querySelector('.hamburger');
+    const open = menu.classList.toggle('open');
+    btn.innerHTML = open ? CLOSE_ICON : HAMBURGER_ICON;
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').innerHTML = HAMBURGER_ICON;
+  }
+  document.addEventListener('click', e => {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !document.querySelector('.hamburger').contains(e.target)) {
+      closeMobileNav();
+    }
+  });
+</script>
+</body>
+</html>
