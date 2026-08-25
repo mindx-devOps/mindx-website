@@ -88,8 +88,10 @@
     /* ══ FOOTER ══ */
     footer { background: #071A45; border-top: 1px solid rgba(255,255,255,.07); padding: 3.5rem 2rem 2rem; }
     .footer-inner { max-width: 1120px; margin: 0 auto; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 1.75rem; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 1.75rem; }
     .footer-brand p { font-size: .82rem; color: rgba(255,255,255,.4); margin-top: .75rem; line-height: 1.7; max-width: 270px; }
+    .footer-brand-stack { margin-top: 1rem; font-size: .75rem; color: rgba(255,255,255,.3); line-height: 1.9; }
+    .footer-brand-stack span { color: rgba(255,255,255,.5); font-weight: 600; }
     .footer-col h4 { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.35); margin-bottom: .9rem; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: .5rem; }
@@ -129,26 +131,25 @@
 
 <!-- ══ ANNOUNCEMENT BAR ══ -->
 <div class="ann-bar">
-  <span class="ann-full">Simple pricing — $39/mo &nbsp;·&nbsp; $99/mo &nbsp;·&nbsp; $199/mo. No per-ticket charges. Ever.&nbsp;</span>
-  <span class="ann-short">Plans from $39/mo. No per-ticket charges.&nbsp;</span>
-  <a href="index.html#pricing">See pricing →</a>
+  <span class="ann-full">Start with WISMO. Prove the outcome. From $39/mo.&nbsp;</span>
+  <span class="ann-short">WISMO Agent from $39/mo.&nbsp;</span>
+  <a href="v2.html#pricing">See pricing →</a>
 </div>
 
 <!-- ══ NAV ══ -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo">
+  <a href="v2.html" class="nav-logo">
     <img src="MindX_AI_Logo.png" alt="MindX AI" height="40" style="display:block;">
   </a>
   <div class="nav-center">
-    <a href="index.html#how-it-works">How it works</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="index.html#compare">Compare</a>
-    <a href="index.html#whatsapp">WhatsApp ✦</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="v2.html#what-mindx-does">Product</a>
+    <a href="v2.html#how-it-works">How It Works</a>
+    <a href="v2.html#pricing">Pricing</a>
+    <a href="v2.html#faq">FAQ</a>
   </div>
   <div class="nav-right">
     <a href="https://app.themindx.com/signin" class="btn-nav-ghost">Log in</a>
-    <a href="https://app.themindx.com/signup" class="btn-nav-primary">Signup</a>
+    <a href="https://app.themindx.com/signup" class="btn-nav-primary">Start Free</a>
   </div>
   <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -159,13 +160,12 @@
 
 <!-- ══ MOBILE MENU ══ -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#how-it-works" onclick="closeMobileNav()">How it works</a>
-  <a href="index.html#pricing" onclick="closeMobileNav()">Pricing</a>
-  <a href="index.html#compare" onclick="closeMobileNav()">Compare</a>
-  <a href="index.html#whatsapp" onclick="closeMobileNav()">WhatsApp ✦</a>
-  <a href="index.html#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="v2.html#what-mindx-does" onclick="closeMobileNav()">Product</a>
+  <a href="v2.html#how-it-works" onclick="closeMobileNav()">How It Works</a>
+  <a href="v2.html#pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="v2.html#faq" onclick="closeMobileNav()">FAQ</a>
   <a href="https://app.themindx.com/signin" class="mob-login" onclick="closeMobileNav()">Log in</a>
-  <a href="https://app.themindx.com/signup" class="mob-cta" onclick="closeMobileNav()">Signup</a>
+  <a href="https://app.themindx.com/signup" class="mob-cta" onclick="closeMobileNav()">Start Free</a>
 </div>
 
 <!-- ══ CONTENT ══ -->
@@ -398,57 +398,64 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="MindX_AI_Logo.png" alt="MindX AI" height="36" style="display:block;">
-        <p>The AI layer for ecommerce. Resolving Shopify customer support and chat conversations end to end — no setup wizard, no code.</p>
+        <img src="MindX_AI_Logo.png" alt="MindX AI" height="36">
+        <p>AI agents for SMB ecommerce.</p>
+        <div class="footer-brand-stack">
+          Starting with<br>
+          <span>WISMO → Shopify → Customer Service</span>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <ul>
-          <li><a href="index.html#how-it-works">How it works</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
-          <li><a href="index.html#compare">Compare</a></li>
-          <li><a href="index.html#whatsapp">WhatsApp — Soon</a></li>
-          <li><a href="index.html#setup">Quick setup</a></li>
+          <li><a href="v2.html#what-mindx-does">WISMO Agent</a></li>
+          <li><a href="v2.html#how-it-works">How It Works</a></li>
+          <li><a href="v2.html#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="mailto:hello@themindx.com">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="privacy-policy.html">Privacy</a></li>
+          <li><a href="terms-of-service.html">Terms</a></li>
         </ul>
       </div>
     </div>
+  </div>
+  <div class="footer-wordmark">MindX AI</div>
 
-    <div class="footer-wordmark">MindX AI</div>
-
-    <div class="ask-ai-bar">
-      <span class="ask-ai-label">Ask AI About MindX AI</span>
-      <div class="ask-ai-icons">
-        <a href="https://chatgpt.com/?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#10A37F;" title="Ask ChatGPT">
-          <img src="AI logos/Chatgpt.png" width="32" height="32" alt="ChatGPT" style="object-fit:contain;">
-        </a>
-        <a href="https://claude.ai/new?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#D97757;" title="Ask Claude">
-          <img src="AI logos/Claude.png" width="32" height="32" alt="Claude" style="object-fit:contain;">
-        </a>
-        <a href="https://gemini.google.com/app?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#fff;" title="Ask Gemini">
-          <img src="AI logos/Gemini.png" width="32" height="32" alt="Gemini" style="object-fit:contain;">
-        </a>
-        <a href="https://www.perplexity.ai/search/new?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#1C1C1E;" title="Ask Perplexity">
-          <img src="AI logos/perplexity.png" width="32" height="32" alt="Perplexity" style="object-fit:contain;">
-        </a>
-        <a href="https://x.com/i/grok?text=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details." target="_blank" rel="noopener" class="ai-icon" style="background:#000;" title="Ask Grok">
-          <img src="AI logos/Grok.png" width="32" height="32" alt="Grok" style="object-fit:contain;">
-        </a>
-      </div>
+  <div class="ask-ai-bar" style="padding: 1.5rem 2rem 1rem; max-width:1120px; margin: 0 auto;">
+    <span class="ask-ai-label">Ask AI About MindX AI</span>
+    <div class="ask-ai-icons">
+      <a href="https://chatgpt.com/?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details.%20Focus%20on%20AI-powered%20customer%20support%2C%20sales%20conversations%2C%20website%20chat%2C%20WhatsApp%2C%20email%2C%20AI%20agents%2C%20and%20the%20business%20benefits%20for%20Shopify%20brands." target="_blank" rel="noopener" class="ai-icon" style="background:#10A37F;" title="Ask ChatGPT">
+        <img src="AI logos/Chatgpt.png" width="32" height="32" alt="ChatGPT" style="object-fit:contain;">
+      </a>
+      <a href="https://claude.ai/new?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details.%20Focus%20on%20AI-powered%20customer%20support%2C%20sales%20conversations%2C%20website%20chat%2C%20WhatsApp%2C%20email%2C%20AI%20agents%2C%20and%20the%20business%20benefits%20for%20Shopify%20brands." target="_blank" rel="noopener" class="ai-icon" style="background:#D97757;" title="Ask Claude">
+        <img src="AI logos/Claude.png" width="32" height="32" alt="Claude" style="object-fit:contain;">
+      </a>
+      <a href="https://gemini.google.com/app?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details.%20Focus%20on%20AI-powered%20customer%20support%2C%20sales%20conversations%2C%20website%20chat%2C%20WhatsApp%2C%20email%2C%20AI%20agents%2C%20and%20the%20business%20benefits%20for%20Shopify%20brands." target="_blank" rel="noopener" class="ai-icon" style="background:#fff;" title="Ask Gemini">
+        <img src="AI logos/Gemini.png" width="32" height="32" alt="Gemini" style="object-fit:contain;">
+      </a>
+      <a href="https://www.perplexity.ai/search/new?q=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details.%20Focus%20on%20AI-powered%20customer%20support%2C%20sales%20conversations%2C%20website%20chat%2C%20WhatsApp%2C%20email%2C%20AI%20agents%2C%20and%20the%20business%20benefits%20for%20Shopify%20brands." target="_blank" rel="noopener" class="ai-icon" style="background:#1C1C1E;" title="Ask Perplexity">
+        <img src="AI logos/perplexity.png" width="32" height="32" alt="Perplexity" style="object-fit:contain;">
+      </a>
+      <a href="https://x.com/i/grok?text=Explain%20why%20ecommerce%20business%20owners%20choose%20MindX%20AI%20%E2%80%94%20visit%20https%3A%2F%2Fthemindx.ai%20for%20details.%20Focus%20on%20AI-powered%20customer%20support%2C%20sales%20conversations%2C%20website%20chat%2C%20WhatsApp%2C%20email%2C%20AI%20agents%2C%20and%20the%20business%20benefits%20for%20Shopify%20brands." target="_blank" rel="noopener" class="ai-icon" style="background:#000;" title="Ask Grok">
+        <img src="AI logos/Grok.png" width="32" height="32" alt="Grok" style="object-fit:contain;">
+      </a>
     </div>
+  </div>
 
-    <div class="footer-btm">
-      <p>© 2026 MindX Digital Softwares Inc. · <a href="https://www.themindx.ai" style="color:inherit;text-decoration:none;">www.themindx.ai</a></p>
-      <div class="footer-legal">
-        <a href="privacy-policy.html">Privacy</a>
-        <a href="terms-of-service.html">Terms</a>
-      </div>
+  <div class="footer-btm" style="padding: 1rem 2rem; max-width:1120px; margin: 0 auto;">
+    <p>© 2026 MindX Digital Softwares Inc. · <a href="https://www.themindx.ai" style="color:inherit;text-decoration:none;">www.themindx.ai</a></p>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
     </div>
   </div>
 </footer>
