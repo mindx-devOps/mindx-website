@@ -369,7 +369,7 @@
 
     /* ══ RESPONSIVE ══ */
     @media (max-width: 1024px) { .hero-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; } .steps-6 { grid-template-columns: 1fr 1fr; } .dash-metrics { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .wismo-card { display: none; } .agent-compare { grid-template-columns: 1fr; } .context-split { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .wismo-card { display: none; } .agent-compare { grid-template-columns: 1fr; } .context-split { grid-template-columns: 1fr; } .hero { padding: 130px 1.5rem 60px; } }
     @media (max-width: 768px) {
       .nav-center, .nav-right .btn-nav-ghost, .nav-right .btn-nav-primary { display: none; }
       .hamburger { display: flex; } nav { width: calc(100% - 24px); top: 46px; }
@@ -382,16 +382,23 @@
       .pricing-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .dash-metrics { grid-template-columns: 1fr 1fr; }
+      .safety-action { width: 140px; font-size: .76rem; padding: .75rem .85rem; }
+      .safety-scenario { padding: .75rem .85rem; font-size: .8rem; }
+      .hero-proof { gap: .85rem; }
     }
     @media (max-width: 520px) {
       .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
-      .hero { padding: 128px 1.25rem 60px; }
+      .hero { padding: 120px 1.25rem 50px; }
       .hero-ctas { flex-direction: column; align-items: stretch; }
       .hero-ctas a { text-align: center; justify-content: center; }
       .sh { font-size: 1.7rem; }
       .final-cta { padding: 60px 1.25rem; }
       .final-cta h2 { font-size: 2rem; }
       .dash-metrics { grid-template-columns: 1fr 1fr; }
+      .safety-action { width: 120px; font-size: .72rem; }
+      .hero-proof { flex-direction: column; align-items: flex-start; gap: .5rem; }
+      .ask-ai-icons { gap: 8px; }
+      .ai-icon { width: 44px; height: 44px; border-radius: 11px; }
     }
   </style>
 </head>
@@ -425,12 +432,12 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#what-mindx-does">Product</a>
-  <a href="#how-it-works">How It Works</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#faq">FAQ</a>
-  <a href="https://app.themindx.com/signin">Log in</a>
-  <a href="https://app.themindx.com/signup" class="mob-cta">Start Free</a>
+  <a href="#what-mindx-does" onclick="toggleNav()">Product</a>
+  <a href="#how-it-works" onclick="toggleNav()">How It Works</a>
+  <a href="#pricing" onclick="toggleNav()">Pricing</a>
+  <a href="#faq" onclick="toggleNav()">FAQ</a>
+  <a href="https://app.themindx.com/signin" onclick="toggleNav()">Log in</a>
+  <a href="https://app.themindx.com/signup" class="mob-cta" onclick="toggleNav()">Start Free</a>
 </div>
 
 <!-- ══ HERO ══ -->
