@@ -400,14 +400,275 @@
       .ask-ai-icons { gap: 8px; }
       .ai-icon { width: 44px; height: 44px; border-radius: 11px; }
     }
+
+    /* ══ HERO VISUAL — LIVE AI AGENT ══ */
+    .hv-root {
+      position: relative;
+      border-radius: var(--r-xl);
+      background: linear-gradient(160deg, #071630 0%, #0A2050 60%, #0D2B6E 100%);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hv-root::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+    }
+    .hv-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hv-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      z-index: 10;
+    }
+    .hv-pulse-a, .hv-pulse-b {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      border: 1px solid rgba(110,231,183,.35);
+      width: 90px;
+      height: 90px;
+      opacity: 0;
+    }
+    .hv-pulse-a { animation: hvRing 2.8s ease-out infinite; }
+    .hv-pulse-b { animation: hvRing 2.8s ease-out infinite .95s; }
+    @keyframes hvRing {
+      0%   { transform: translate(-50%,-50%) scale(.8);  opacity: .9; }
+      100% { transform: translate(-50%,-50%) scale(1.55); opacity: 0; }
+    }
+    .hv-core-btn {
+      position: relative;
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      background: rgba(26,111,255,.18);
+      border: 1.5px solid rgba(26,111,255,.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(12px);
+      z-index: 1;
+      box-shadow: 0 0 28px rgba(26,111,255,.28);
+    }
+    .hv-core-label {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+    .hv-core-count {
+      font-size: .58rem;
+      font-weight: 600;
+      color: #6EE7B7;
+    }
+    .hv-cards-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .hv-card {
+      position: absolute;
+      width: 174px;
+      background: rgba(255,255,255,.97);
+      border-radius: 11px;
+      padding: 10px 12px 11px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.22), 0 2px 6px rgba(0,0,0,.12);
+      border: 1px solid rgba(255,255,255,.15);
+      opacity: 0;
+      transform: translateY(-10px) scale(.96);
+      transition: opacity .45s ease, transform .45s ease;
+    }
+    .hv-card.in  { opacity: 1; transform: translateY(0) scale(1); }
+    .hv-card.out { opacity: 0; transform: translateY(10px) scale(.97); }
+    .hv-card-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: .52rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin-bottom: 5px;
+    }
+    .hv-card-tag.wismo  { background: #EEF4FF; color: #1A6FFF; }
+    .hv-card-tag.return { background: #FEF3C7; color: #B45309; }
+    .hv-card-tag.update { background: #F5F3FF; color: #6D28D9; }
+    .hv-card-tag.info   { background: #F0FDF4; color: #15803D; }
+    .hv-card-tag.cancel { background: #FFF1F2; color: #BE123C; }
+    .hv-card-tag.issue  { background: #FFF7ED; color: #C2410C; }
+    .hv-card-q {
+      font-size: .73rem;
+      font-weight: 700;
+      color: #0C0F1A;
+      line-height: 1.35;
+      margin-bottom: 5px;
+    }
+    .hv-card-ref {
+      font-size: .6rem;
+      color: #9CA3AF;
+      font-weight: 500;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .hv-card-ref-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #6EE7B7;
+      flex-shrink: 0;
+    }
+    .hv-card-steps { display: flex; flex-direction: column; gap: 4px; margin-bottom: 7px; }
+    .hv-step {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .59rem;
+      color: #D1D5DB;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity .3s ease, transform .3s ease, color .3s ease;
+    }
+    .hv-step.lit { opacity: 1; transform: translateX(0); color: #374151; }
+    .hv-step-ck {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 1px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .42rem;
+      color: transparent;
+      flex-shrink: 0;
+      transition: background .3s, border-color .3s, color .3s;
+    }
+    .hv-step-ck.done { background: #F0FDF4; border-color: rgba(22,163,74,.3); color: #16A34A; }
+    .hv-resolved {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #F0FDF4;
+      border: 1px solid rgba(22,163,74,.25);
+      border-radius: 7px;
+      padding: 5px 8px;
+      font-size: .6rem;
+      font-weight: 700;
+      color: #15803D;
+      opacity: 0;
+      transform: scale(.95);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .hv-resolved.in { opacity: 1; transform: scale(1); }
+    .hv-stats {
+      position: absolute;
+      inset: 0;
+      background: rgba(5,18,50,.93);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .55s ease;
+      z-index: 20;
+      border-radius: var(--r-xl);
+    }
+    .hv-stats.in { opacity: 1; }
+    .hv-stats-eye {
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 1.1rem;
+    }
+    .hv-stats-row { display: flex; align-items: center; gap: 1.8rem; }
+    .hv-stat-item { text-align: center; }
+    .hv-stat-n {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      color: #fff;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .hv-stat-n.green { color: #4ade80; }
+    .hv-stat-lbl { font-size: .6rem; color: rgba(255,255,255,.38); font-weight: 500; margin-top: .2rem; }
+    .hv-stat-div { width: 1px; height: 44px; background: rgba(255,255,255,.1); }
+    .hv-stats-foot {
+      margin-top: 1.1rem;
+      font-size: .68rem;
+      color: rgba(110,231,183,.55);
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+    .hv-ticker {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .58rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.3);
+      white-space: nowrap;
+      z-index: 6;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .hv-tick-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #6EE7B7;
+      animation: blink 1.8s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+    @media (max-width:900px) { .hv-root { display: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .hv-card, .hv-step, .hv-resolved, .hv-stats, .hv-pulse-a, .hv-pulse-b {
+        animation: none; transition: none;
+      }
+    }
   </style>
 </head>
 <body>
 
 <!-- ══ ANNOUNCEMENT BAR ══ -->
 <div class="ann-bar">
-  <span class="ann-full">Start with WISMO. Prove the outcome. From $39/mo.&nbsp;</span>
-  <span class="ann-short">WISMO Agent from $39/mo.&nbsp;</span>
+  <span class="ann-full">Cut support costs. Prove the outcome. From $39/mo.&nbsp;</span>
+  <span class="ann-short">Cut support costs. From $39/mo.&nbsp;</span>
   <a href="#pricing">See pricing →</a>
 </div>
 
@@ -457,52 +718,44 @@
       </div>
       <div class="hero-proof">
         <span class="hero-proof-item">✓ Built for Shopify merchants</span>
-        <span class="hero-proof-item">✓ Start with WISMO</span>
+        <span class="hero-proof-item">✓ No credit card required.</span>
       </div>
     </div>
 
-    <!-- WISMO AGENT VISUAL -->
-    <div class="wismo-card">
-      <div class="wismo-topbar">
-        <span class="wismo-title">MindX WISMO Agent</span>
-        <span class="wismo-badge">● LIVE</span>
+    <!-- HERO VISUAL — LIVE AI AGENT SYSTEM -->
+    <div class="hv-root" id="heroVisual" role="img" aria-label="MindX AI handling multiple customer conversations simultaneously">
+      <svg class="hv-svg" id="hvSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="hv-cards-layer" id="hvCards"></div>
+      <div class="hv-center" id="hvCenter">
+        <div class="hv-pulse-a"></div>
+        <div class="hv-pulse-b"></div>
+        <div class="hv-core-btn">
+          <img src="MX_Icon_White.png" alt="MindX AI" width="34" height="34" style="border-radius:10px;">
+        </div>
+        <div class="hv-core-label">MindX AI</div>
+        <div class="hv-core-count" id="hvCount">● 4 handling</div>
       </div>
-      <div class="wismo-body">
-        <div class="wismo-msg cust">
-          <div class="wismo-av user">C</div>
-          <div class="wismo-bubble">Hi, where is my order #10482?</div>
-        </div>
-
-        <div class="wismo-steps">
-          <div class="wismo-step">
-            <div class="wismo-step-icon done">✓</div>
-            <span><span class="wismo-step-label">Understanding request</span><span class="wismo-step-detail">WISMO detected</span></span>
+      <div class="hv-stats" id="hvStats" aria-hidden="true">
+        <div class="hv-stats-eye">Today's outcomes</div>
+        <div class="hv-stats-row">
+          <div class="hv-stat-item">
+            <div class="hv-stat-n">147</div>
+            <div class="hv-stat-lbl">conversations</div>
           </div>
-          <div class="wismo-step">
-            <div class="wismo-step-icon done">✓</div>
-            <span><span class="wismo-step-label">Finding order</span><span class="wismo-step-detail">Order #10482 found</span></span>
+          <div class="hv-stat-div"></div>
+          <div class="hv-stat-item">
+            <div class="hv-stat-n green">102</div>
+            <div class="hv-stat-lbl">AI resolved</div>
           </div>
-          <div class="wismo-step">
-            <div class="wismo-step-icon done">✓</div>
-            <span><span class="wismo-step-label">Checking shipment</span><span class="wismo-step-detail">Carrier: DHL · In transit</span></span>
-          </div>
-          <div class="wismo-step">
-            <div class="wismo-step-icon done">✓</div>
-            <span><span class="wismo-step-label">Resolving</span><span class="wismo-step-detail">Customer response prepared</span></span>
+          <div class="hv-stat-div"></div>
+          <div class="hv-stat-item">
+            <div class="hv-stat-n green">69%</div>
+            <div class="hv-stat-lbl">automated</div>
           </div>
         </div>
-
-        <div class="wismo-msg ai">
-          <div class="wismo-av ai">
-            <img src="MX_Icon_White.png" alt="MindX" width="28" height="28" style="border-radius:8px;background:#151944;">
-          </div>
-          <div class="wismo-bubble">Hi! Your order #10482 shipped yesterday via DHL and is currently in transit. Expected delivery is tomorrow by 8pm. Track it here: [DHL link]</div>
-        </div>
-
-        <div class="wismo-resolved">
-          ✓ WISMO RESOLVED · No human intervention required
-        </div>
+        <div class="hv-stats-foot">✓ No human intervention required</div>
       </div>
+      <div class="hv-ticker"><div class="hv-tick-dot"></div>Live · Handling customers now</div>
     </div>
   </div>
 </section>
@@ -1028,6 +1281,171 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── HERO VISUAL ANIMATION ─────────────────────────────────
+  (function() {
+    const pref = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const root = document.getElementById('heroVisual');
+    if (!root || pref) return;
+
+    const svg    = document.getElementById('hvSvg');
+    const layer  = document.getElementById('hvCards');
+    const center = document.getElementById('hvCenter');
+    const stats  = document.getElementById('hvStats');
+    const count  = document.getElementById('hvCount');
+
+    const convos = [
+      { q:'Where is my order?',            ref:'#10482', detail:'DHL · In transit',        tag:'wismo',  label:'WISMO',
+        steps:['Understanding request','Order #10482 located','DHL · In transit'],            outcome:'Tracking link sent' },
+      { q:'Can I return this item?',        ref:'#10517', detail:'UPS · Delivered',          tag:'return', label:'Return',
+        steps:['Return request detected','Order #10517 found','Return eligible ✓'],           outcome:'Return label sent' },
+      { q:'Can I change my address?',       ref:'#10531', detail:'FedEx · Processing',       tag:'update', label:'Update',
+        steps:['Address change request','Order #10531 found','Pre-shipment window ✓'],        outcome:'Update confirmed' },
+      { q:'When will it arrive?',           ref:'#10489', detail:'DHL · Out for delivery',   tag:'wismo',  label:'WISMO',
+        steps:['Delivery query detected','Order #10489 found','Est. delivery: today'],        outcome:'ETA delivered' },
+      { q:'Do you ship to Canada?',         ref:null,     detail:'Shipping policy',          tag:'info',   label:'Info',
+        steps:['Policy query detected','Shipping zones loaded','Canada: available ✓'],        outcome:'Policy answered' },
+      { q:'Can I cancel my order?',         ref:'#10543', detail:'Not yet shipped',          tag:'cancel', label:'Cancel',
+        steps:['Cancellation request','Order #10543 found','Pre-shipment window ✓'],          outcome:'Order cancelled' },
+      { q:'Package shows delivered but...', ref:'#10499', detail:'Royal Mail · Delivered',   tag:'issue',  label:'Issue',
+        steps:['Issue detected','Order #10499 found','Reship eligible ✓'],                    outcome:'Reship initiated' },
+      { q:"What's your return window?",     ref:null,     detail:'Policy lookup',            tag:'info',   label:'Info',
+        steps:['Policy query detected','Return policy loaded','30-day window found'],         outcome:'Policy answered' },
+    ];
+
+    const slotPos = [
+      { top:'10%',    left:'3%'  },
+      { top:'8%',     right:'3%' },
+      { bottom:'22%', left:'4%'  },
+      { bottom:'13%', right:'3%' },
+    ];
+
+    const CYCLE = 5200;
+    const STAGGER = 1300;
+    let convoIdx = 0;
+    let cycleCount = 0;
+    const activeCards = new Array(slotPos.length).fill(null);
+
+    function nextConvo() { return convos[convoIdx++ % convos.length]; }
+
+    function posCard(card, pos) {
+      if (pos.top)    card.style.top    = pos.top;
+      if (pos.bottom) card.style.bottom = pos.bottom;
+      if (pos.left)   card.style.left   = pos.left;
+      if (pos.right)  card.style.right  = pos.right;
+    }
+
+    function drawLine(slotIdx, card) {
+      const old = svg.querySelector('[data-slot="' + slotIdx + '"]');
+      if (old) old.remove();
+      const rR = root.getBoundingClientRect();
+      const rC = card.getBoundingClientRect();
+      const rN = center.getBoundingClientRect();
+      if (!rR.width) return;
+      const x1 = rC.left - rR.left + rC.width  / 2;
+      const y1 = rC.top  - rR.top  + rC.height / 2;
+      const x2 = rN.left - rR.left + rN.width  / 2;
+      const y2 = rN.top  - rR.top  + rN.height / 2;
+      const len = Math.hypot(x2 - x1, y2 - y1);
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+      line.setAttribute('stroke', 'rgba(110,231,183,0.22)');
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('stroke-dasharray', '3 7');
+      line.setAttribute('data-slot', slotIdx);
+      line.style.opacity = '0';
+      line.style.transition = 'opacity .4s ease';
+      const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+      anim.setAttribute('attributeName', 'stroke-dashoffset');
+      anim.setAttribute('from', len); anim.setAttribute('to', '0');
+      anim.setAttribute('dur', '1.4s'); anim.setAttribute('repeatCount', 'indefinite');
+      line.appendChild(anim);
+      svg.appendChild(line);
+      requestAnimationFrame(function() { line.style.opacity = '1'; });
+    }
+
+    function removeLine(slotIdx) {
+      const old = svg.querySelector('[data-slot="' + slotIdx + '"]');
+      if (old) { old.style.opacity = '0'; setTimeout(function(){ old.remove(); }, 400); }
+    }
+
+    function runSlot(slotIdx) {
+      const prev = activeCards[slotIdx];
+      if (prev) {
+        prev.classList.remove('in');
+        prev.classList.add('out');
+        removeLine(slotIdx);
+        var gone = prev;
+        setTimeout(function(){ gone.remove(); }, 500);
+        activeCards[slotIdx] = null;
+      }
+
+      var c = nextConvo();
+      var card = document.createElement('div');
+      card.className = 'hv-card';
+      posCard(card, slotPos[slotIdx]);
+      card.innerHTML =
+        '<div class="hv-card-tag ' + c.tag + '">' + c.label + '</div>' +
+        '<div class="hv-card-q">' + c.q + '</div>' +
+        '<div class="hv-card-ref"><span class="hv-card-ref-dot"></span>' + (c.ref ? c.ref + ' · ' : '') + c.detail + '</div>' +
+        '<div class="hv-card-steps">' + c.steps.map(function(s){
+          return '<div class="hv-step"><div class="hv-step-ck"></div><span>' + s + '</span></div>';
+        }).join('') + '</div>' +
+        '<div class="hv-resolved">✓ ' + c.outcome + '</div>';
+
+      layer.appendChild(card);
+      activeCards[slotIdx] = card;
+
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ card.classList.add('in'); }); });
+
+      setTimeout(function(){ drawLine(slotIdx, card); }, 220);
+
+      var steps = card.querySelectorAll('.hv-step');
+      steps.forEach(function(step, i) {
+        setTimeout(function() {
+          step.classList.add('lit');
+          var ck = step.querySelector('.hv-step-ck');
+          ck.classList.add('done');
+          ck.textContent = '✓';
+        }, 900 + i * 650);
+      });
+
+      var resolved = card.querySelector('.hv-resolved');
+      setTimeout(function(){ resolved.classList.add('in'); }, 900 + steps.length * 650 + 300);
+
+      setTimeout(function() {
+        var active = activeCards.filter(Boolean).length;
+        if (count) count.textContent = '● ' + active + ' handling';
+      }, 350);
+
+      var si = slotIdx;
+      setTimeout(function() {
+        cycleCount++;
+        if (cycleCount % 6 === 0) {
+          stats.classList.add('in');
+          setTimeout(function() {
+            stats.classList.remove('in');
+            setTimeout(function(){ runSlot(si); }, 600);
+          }, 2800);
+        } else {
+          runSlot(si);
+        }
+      }, CYCLE);
+    }
+
+    slotPos.forEach(function(_, i){ setTimeout(function(){ runSlot(i); }, i * STAGGER); });
+
+    window.addEventListener('resize', function() {
+      activeCards.forEach(function(card, i) {
+        if (card) {
+          var old = svg.querySelector('[data-slot="' + i + '"]');
+          if (old) old.remove();
+          drawLine(i, card);
+        }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
